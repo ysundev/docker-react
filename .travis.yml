@@ -1,0 +1,9 @@
+sudo: required
+serivces:
+  - docker
+
+  before_install:
+    - docker build -t ysundev/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run ysundev/docker-react npm run test -- --coverage
